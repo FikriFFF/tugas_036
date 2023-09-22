@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Kalkulator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function tambah() {
+            let a = document.getElementById("bilangan1").value;
+            let b = document.getElementById("bilangan2").value;
+            document.getElementById("hasil").value = parseInt(a) + parseInt(b);
+        }
+
+        function kurang() {
+            let a = document.getElementById("bilangan1").value;
+            let b = document.getElementById("bilangan2").value;
+            document.getElementById("hasil").value = parseInt(a) - parseInt(b);
+        }
+
+        function kali() {
+            let a = document.getElementById("bilangan1").value;
+            let b = document.getElementById("bilangan2").value;
+            document.getElementById("hasil").value = parseInt(a) * parseInt(b);
+        }
+
+        function bagi() {
+            let a = document.getElementById("bilangan1").value;
+            let b = document.getElementById("bilangan2").value;
+            document.getElementById("hasil").value = parseFloat(a) / parseFloat(b);
+        }
+
+        function pangkat() {
+            let a = document.getElementById("bilangan1").value;
+            let b = document.getElementById("bilangan2").value;
+            document.getElementById("hasil").value = Math.pow(parseInt(a), parseInt(b));
+        }
+
+        function cekAngka() {
+            const bil1 = parseInt(document.getElementById("bilangan1").value);
+            const bil2 = parseInt(document.getElementById("bilangan2").value);
+            const output = document.getElementById("output");
+
+            if (bil1 < bil2) {
+                output.innerHTML = bil1 + " Lebih kecil daripada " + bil2;
+            } else if (bil1 > bil2) {
+                output.innerHTML = bil1 + " Lebih besar daripada " + bil2;
+            } else {
+                output.innerHTML = bil1 + " sama dengan " + bil2;
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <table style="width: 100%;">
+        <tr>
+            <td>
+                <label for="bilangan1"> Bilangan 1</label>
+                <br />
+                <input type="text" id="bilangan1" />
+            </td>
+            <td>
+                <label for="bilangan2"> Bilangan 2</label>
+                <br />
+                <input type="text" id="bilangan2" />
+            </td>
+            <td>
+                <label for="hasil"> Hasil</label>
+                <br />
+                <input type="text" id="hasil" />
+            </td>
+        </tr>
+    </table>
+    <br />
+    <table style="width: 100%;">
+        <tr>
+            <td>
+                <input type="button" id="jumlah" value="+" style="width: 100%; " onclick="tambah();" />
+            </td>
+            <td>
+                <input type="button" id="kurang" value="-" style="width: 100%; " onclick="kurang();" />
+            </td>
+            <td>
+                <input type="button" id="kali" value="x" style="width: 100%; " onclick="kali();" />
+            </td>
+            <td>
+                <input type="button" id="bagi" value=":" style="width: 100%;  " onclick="bagi();" />
+            </td>
+            <td>
+                <input type="button" id="pangkat" value="**" style="width: 100%;  " onclick="pangkat();" />
+            </td>
+        </tr>
+    </table>
+    <br />
+    <input type="button" id="btnCek" onclick="cekAngka();" value="Cek Angka" />
+    <br />
+    <p id="output" class="myClass"></p>
+</body>
+</html>
